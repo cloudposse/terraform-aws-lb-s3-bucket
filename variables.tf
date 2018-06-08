@@ -47,3 +47,8 @@ variable "force_destroy" {
   description = "A boolean that indicates the bucket can be destroyed even if it contains objects. These objects are not recoverable"
   default     = "false"
 }
+
+variable "prefix" {
+  description = "The S3 bucket prefix for the AWSLogs"
+  default     = ""
+}
