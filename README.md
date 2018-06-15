@@ -14,7 +14,7 @@ The module supports the following:
 
 ```hcl
 module "s3_bucket" {
-  source    = "git::https://github.com/cloudposse/terraform-aws-lb-s3-bucket.git?ref=master"
+  source    = "git::https://github.com/cloudposse/terraform-aws-lb-s3-bucket.git?ref=tags/0.1.0"
   namespace = "cp"
   stage     = "prod"
   name      = "cluster"
@@ -50,7 +50,7 @@ module "s3_bucket" {
 
 **Got a question?**
 
-File a GitHub [issue](https://github.com/cloudposse/terraform-aws-lb-s3-bucket/issues), send us an [email](mailto:hello@cloudposse.com) or reach out to us on [Gitter](https://gitter.im/cloudposse/).
+File a GitHub [issue](https://github.com/cloudposse/terraform-aws-ecs-alb-service-task/issues), send us an [email](mailto:hello@cloudposse.com) or reach out to us on [Gitter](https://gitter.im/cloudposse/).
 
 
 ## Contributing

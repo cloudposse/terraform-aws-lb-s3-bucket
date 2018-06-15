@@ -1,16 +1,16 @@
 variable "namespace" {
-  description = "Namespace (e.g. `cp` or `cloudposse`)"
   type        = "string"
+  description = "Namespace (e.g. `cp` or `cloudposse`)"
 }
 
 variable "stage" {
-  description = "Stage (e.g. `prod`, `dev`, `staging`)"
   type        = "string"
+  description = "Stage (e.g. `prod`, `dev`, `staging`)"
 }
 
 variable "name" {
-  description = "Name  (e.g. `app` or `cluster`)"
   type        = "string"
+  description = "Name  (e.g. `app` or `cluster`)"
 }
 
 variable "delimiter" {
@@ -44,11 +44,13 @@ variable "region" {
 }
 
 variable "force_destroy" {
+  type        = "string"
   description = "A boolean that indicates the bucket can be destroyed even if it contains objects. These objects are not recoverable"
   default     = "false"
 }
 
 variable "prefix" {
+  type        = "string"
   description = "The S3 bucket prefix for the AWSLogs"
   default     = ""
 }

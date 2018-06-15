@@ -1,7 +1,7 @@
 data "aws_elb_service_account" "default" {}
 
 module "label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.3.3"
+  source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=tags/0.1.3"
   namespace  = "${var.namespace}"
   stage      = "${var.stage}"
   name       = "${var.name}"
