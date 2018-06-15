@@ -1,6 +1,6 @@
 ![Cloud Posse](https://cloudposse.com/logo-300x69.png)
 
-# terraform-aws-lb-s3-bucket [![Build Status](https://travis-ci.org/cloudposse/terraform-aws-lb-s3-bucket.svg?branch=master)](https://travis-ci.org/cloudposse/terraform-aws-lb-s3-bucket)
+# terraform-aws-lb-s3-bucket [![Build Status](https://travis-ci.org/cloudposse/terraform-aws-lb-s3-bucket.svg?branch=master)](https://travis-ci.org/cloudposse/terraform-aws-lb-s3-bucket) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
 
 Terraform module to provision an S3 bucket with built in IAM policy to allow [AWS Load Balancers](https://aws.amazon.com/documentation/elastic-load-balancing/) to ship [access logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html).
 
@@ -50,8 +50,7 @@ module "s3_bucket" {
 
 **Got a question?**
 
-File a GitHub [issue](https://github.com/cloudposse/terraform-aws-ecs-alb-service-task/issues), send us an [email](mailto:hello@cloudposse.com) or reach out to us on [Gitter](https://gitter.im/cloudposse/).
-
+File a GitHub [issue](https://github.com/cloudposse/terraform-aws-lb-s3-bucket/issues), send us an [email](mailto:hello@cloudposse.com) or reach out to us on [Slack](https://slack.cloudposse.com).
 
 ## Contributing
 
