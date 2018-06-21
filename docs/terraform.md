@@ -18,8 +18,8 @@
 
 | Name | Description |
 |------|-------------|
-| bucket_arn |  |
-| bucket_domain_name |  |
-| bucket_id |  |
-| bucket_prefix |  |
+| bucket_arn | S3 bucket ARN |
+| bucket_domain_name | S3 bucket domain name |
+| bucket_id | S3 bucket ID |
+| bucket_prefix | S3 bucket prefix |
 
