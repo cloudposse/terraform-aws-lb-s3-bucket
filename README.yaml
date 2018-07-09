@@ -23,7 +23,7 @@ badges:
     url: "https://travis-ci.org/cloudposse/terraform-aws-lb-s3-bucket"
   - name: "Latest Release"
     image: "https://img.shields.io/github/release/cloudposse/terraform-aws-lb-s3-bucket.svg"
-    url: "https://github.com/cloudposse/terraform-aws-lb-s3-bucket/releases"
+    url: "https://github.com/cloudposse/terraform-aws-lb-s3-bucket/releases/latest"
   - name: "Slack Community"
     image: "https://slack.cloudposse.com/badge.svg"
     url: "https://slack.cloudposse.com"
