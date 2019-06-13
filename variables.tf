@@ -54,3 +54,8 @@ variable "prefix" {
   description = "The S3 bucket prefix for the AWSLogs"
   default     = ""
 }
+
+variable "enabled" {
+  description = "Set to `false` to prevent the module from creating any resources"
+  default     = true
+}

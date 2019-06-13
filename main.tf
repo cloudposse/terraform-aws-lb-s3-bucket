@@ -32,7 +32,8 @@ data "aws_iam_policy_document" "default" {
 }
 
 module "s3_bucket" {
-  source                 = "git::https://github.com/cloudposse/terraform-aws-s3-log-storage.git?ref=tags/0.2.0"
+  source                 = "git::https://github.com/cloudposse/terraform-aws-s3-log-storage.git?ref=tags/0.4.0"
+  enabled                = "${var.enabled}"
   namespace              = "${var.namespace}"
   stage                  = "${var.stage}"
   name                   = "${var.name}"
@@ -45,5 +46,5 @@ module "s3_bucket" {
   delimiter              = "${var.delimiter}"
   attributes             = "${var.attributes}"
   tags                   = "${var.tags}"
-  prefix                 = "${var.prefix}"
+  lifecycle_prefix       = "${var.prefix}"
 }
