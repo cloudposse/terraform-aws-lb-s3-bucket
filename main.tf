@@ -51,5 +51,5 @@ module "s3_bucket" {
   delimiter              = var.delimiter
   attributes             = var.attributes
   tags                   = var.tags
-  prefix                 = var.prefix
+  lifecycle_prefix       = var.lifecycle_prefix
 }

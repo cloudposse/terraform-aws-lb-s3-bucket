@@ -81,9 +81,9 @@ Available targets:
 | delimiter | Delimiter to be used between `namespace`, `stage`, `name` and `attributes` | string | `-` | no |
 | enabled | Set to `false` to prevent the module from creating any resources | bool | `true` | no |
 | force_destroy | A boolean that indicates the bucket can be destroyed even if it contains objects. These objects are not recoverable | bool | `false` | no |
+| lifecycle_prefix | Prefix filter. Used to manage object lifecycle events | string | `` | no |
 | name | Name  (e.g. `app` or `cluster`) | string | - | yes |
 | namespace | Namespace (e.g. `cp` or `cloudposse`) | string | `` | no |
-| prefix | The S3 bucket prefix for the AWSLogs | string | `` | no |
 | region | AWS Region for S3 bucket | string | - | yes |
 | stage | Stage (e.g. `prod`, `dev`, `staging`) | string | `` | no |
 | tags | Additional tags (e.g. map(`BusinessUnit`,`XYZ`) | map(string) | `<map>` | no |

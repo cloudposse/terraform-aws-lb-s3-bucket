@@ -56,8 +56,8 @@ variable "force_destroy" {
   default     = false
 }
 
-variable "prefix" {
+variable "lifecycle_prefix" {
   type        = string
-  description = "The S3 bucket prefix for the AWSLogs"
+  description = "Prefix filter. Used to manage object lifecycle events"
   default     = ""
 }
