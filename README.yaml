@@ -18,9 +18,9 @@ github_repo: cloudposse/terraform-aws-lb-s3-bucket
 
 # Badges to display
 badges:
-  - name: "Build Status"
-    image: "https://travis-ci.org/cloudposse/terraform-aws-lb-s3-bucket.svg?branch=master"
-    url: "https://travis-ci.org/cloudposse/terraform-aws-lb-s3-bucket"
+  - name: "Codefresh Build Status"
+    image: "https://g.codefresh.io/api/badges/pipeline/cloudposse/terraform-modules%2Fterraform-aws-lb-s3-bucket?type=cf-1"
+    url: "https://g.codefresh.io/public/accounts/cloudposse/pipelines/5d13a1a65a2937324df0008b"
   - name: "Latest Release"
     image: "https://img.shields.io/github/release/cloudposse/terraform-aws-lb-s3-bucket.svg"
     url: "https://github.com/cloudposse/terraform-aws-lb-s3-bucket/releases/latest"
@@ -42,9 +42,9 @@ description: |-
 usage: |-
   ```hcl
   module "s3_bucket" {
-    source    = "git::https://github.com/cloudposse/terraform-aws-lb-s3-bucket.git?ref=tags/0.1.0"
-    namespace = "cp"
-    stage     = "prod"
+    source    = "git::https://github.com/cloudposse/terraform-aws-lb-s3-bucket.git?ref=master"
+    namespace = "eg"
+    stage     = "test"
     name      = "cluster"
     region    = "us-east-1"
   }

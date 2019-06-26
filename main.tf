@@ -1,22 +1,27 @@
-data "aws_elb_service_account" "default" {}
+data "aws_elb_service_account" "default" {
+  count = var.enabled ? 1 : 0
+}
 
 module "label" {
-  source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=tags/0.1.3"
-  namespace  = "${var.namespace}"
-  stage      = "${var.stage}"
-  name       = "${var.name}"
-  delimiter  = "${var.delimiter}"
-  attributes = "${var.attributes}"
-  tags       = "${var.tags}"
+  source     = "git::https://github.com/cloudposse/terraform-terraform-label.git?ref=tags/0.4.0"
+  enabled    = var.enabled
+  namespace  = var.namespace
+  stage      = var.stage
+  name       = var.name
+  delimiter  = var.delimiter
+  attributes = var.attributes
+  tags       = var.tags
 }
 
 data "aws_iam_policy_document" "default" {
+  count = var.enabled ? 1 : 0
+
   statement {
     sid = ""
 
     principals {
       type        = "AWS"
-      identifiers = ["${data.aws_elb_service_account.default.arn}"]
+      identifiers = [join("", data.aws_elb_service_account.default.*.arn)]
     }
 
     effect = "Allow"
@@ -32,18 +37,19 @@ data "aws_iam_policy_document" "default" {
 }
 
 module "s3_bucket" {
-  source                 = "git::https://github.com/cloudposse/terraform-aws-s3-log-storage.git?ref=tags/0.2.0"
-  namespace              = "${var.namespace}"
-  stage                  = "${var.stage}"
-  name                   = "${var.name}"
-  region                 = "${var.region}"
-  acl                    = "${var.acl}"
-  policy                 = "${data.aws_iam_policy_document.default.json}"
-  force_destroy          = "${var.force_destroy}"
-  versioning_enabled     = "true"
-  lifecycle_rule_enabled = "false"
-  delimiter              = "${var.delimiter}"
-  attributes             = "${var.attributes}"
-  tags                   = "${var.tags}"
-  prefix                 = "${var.prefix}"
+  source                 = "git::https://github.com/cloudposse/terraform-aws-s3-log-storage.git?ref=tags/0.5.0"
+  enabled                = var.enabled
+  namespace              = var.namespace
+  stage                  = var.stage
+  name                   = var.name
+  region                 = var.region
+  acl                    = var.acl
+  policy                 = join("", data.aws_iam_policy_document.default.*.json)
+  force_destroy          = var.force_destroy
+  versioning_enabled     = true
+  lifecycle_rule_enabled = false
+  delimiter              = var.delimiter
+  attributes             = var.attributes
+  tags                   = var.tags
+  prefix                 = var.prefix
 }
