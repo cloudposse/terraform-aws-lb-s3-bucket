@@ -1,44 +1,20 @@
----
-#
-# This is the canonical configuration for the `README.md`
-# Run `make readme` to rebuild the `README.md`
-#
-
-# Name of this project
 name: terraform-aws-lb-s3-bucket
-
-# Logo for this project
-#logo: docs/logo.png
-
-# License of this project
-license: "APACHE2"
-
-# Canonical GitHub repo
+license: APACHE2
 github_repo: cloudposse/terraform-aws-lb-s3-bucket
-
-# Badges to display
 badges:
-  - name: "Codefresh Build Status"
-    image: "https://g.codefresh.io/api/badges/pipeline/cloudposse/terraform-modules%2Fterraform-aws-lb-s3-bucket?type=cf-1"
-    url: "https://g.codefresh.io/public/accounts/cloudposse/pipelines/5d13a1a65a2937324df0008b"
-  - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse/terraform-aws-lb-s3-bucket.svg"
-    url: "https://github.com/cloudposse/terraform-aws-lb-s3-bucket/releases/latest"
-  - name: "Slack Community"
-    image: "https://slack.cloudposse.com/badge.svg"
-    url: "https://slack.cloudposse.com"
-
+- name: Latest Release
+  image: https://img.shields.io/github/release/cloudposse/terraform-aws-lb-s3-bucket.svg
+  url: https://github.com/cloudposse/terraform-aws-lb-s3-bucket/releases/latest
+- name: Slack Community
+  image: https://slack.cloudposse.com/badge.svg
+  url: https://slack.cloudposse.com
 related:
-  - name: "terraform-aws-alb"
-    description: "Terraform module to provision a standard ALB for HTTP/HTTP traffic"
-    url: "https://github.com/cloudposse/terraform-aws-alb"
-
-
-# Short description of this project
-description: |-
-  Terraform module to provision an S3 bucket with built in IAM policy to allow [AWS Load Balancers](https://aws.amazon.com/documentation/elastic-load-balancing/) to ship [access logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html).
-
-# How to use this project
+- name: terraform-aws-alb
+  description: Terraform module to provision a standard ALB for HTTP/HTTP traffic
+  url: https://github.com/cloudposse/terraform-aws-alb
+description: Terraform module to provision an S3 bucket with built in IAM policy to
+  allow [AWS Load Balancers](https://aws.amazon.com/documentation/elastic-load-balancing/)
+  to ship [access logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html).
 usage: |-
   ```hcl
   module "s3_bucket" {
@@ -49,27 +25,15 @@ usage: |-
     region    = "us-east-1"
   }
   ```
-
-# Example usage
-#examples: |-
-#  Example goes here...
-
-# How to get started quickly
-#quickstart: |-
-#  Here's how to get started...
-
-# Other files to include in this README from the project folder
 include:
-  - "docs/targets.md"
-  - "docs/terraform.md"
-
-# Contributors to this project
+- docs/targets.md
+- docs/terraform.md
 contributors:
-  - name: "Erik Osterman"
-    github: "osterman"
-  - name: "Igor Rodionov"
-    github: "goruha"
-  - name: "Andriy Knysh"
-    github: "aknysh"
-  - name: "Sarkis Varozian"
-    github: "sarkis"
+- name: Erik Osterman
+  github: osterman
+- name: Igor Rodionov
+  github: goruha
+- name: Andriy Knysh
+  github: aknysh
+- name: Sarkis Varozian
+  github: sarkis
