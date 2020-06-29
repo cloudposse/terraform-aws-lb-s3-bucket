@@ -119,13 +119,20 @@ Available targets:
 | attributes | Additional attributes (e.g. `logs`) | list(string) | `<list>` | no |
 | delimiter | Delimiter to be used between `namespace`, `stage`, `name` and `attributes` | string | `-` | no |
 | enabled | Set to `false` to prevent the module from creating any resources | bool | `true` | no |
+| enable_glacier_transition | Enables the transition of lb logs to AWS Glacier | bool | `true` | no |
 | environment | Environment, e.g. 'prod', 'staging', 'dev', 'pre-prod', 'UAT' | string | `` | no |
+| expiration_days | Number of days after which to expunge s3 logs | number | `90` | no |
 | force_destroy | A boolean that indicates the bucket can be destroyed even if it contains objects. These objects are not recoverable | bool | `false` | no |
+| glacier_transition_days | Number of days after which to move s3 logs to the glacier storage tier | number | `60` | no |
 | lifecycle_prefix | Prefix filter. Used to manage object lifecycle events | string | `` | no |
+| lifecycle_rule_enabled | Whether s3 log bucket lifecycle rule should be enabled | bool | `false` | no |
 | name | Name  (e.g. `app` or `cluster`) | string | - | yes |
 | namespace | Namespace (e.g. `cp` or `cloudposse`) | string | `` | no |
+| noncurrent_version_expiration_days | Specifies when noncurrent s3 log versions expire | number | `90` | no |
+| noncurrent_version_transition_days | Specifies when noncurrent s3 log versions transition | number | `30` | no |
 | region | AWS Region for S3 bucket | string | - | yes |
 | stage | Stage (e.g. `prod`, `dev`, `staging`) | string | `` | no |
+| standard_transition_days | Number of days to persist logs in standard storage tier before moving to the infrequent access tier | number | `30` | no |
 | tags | Additional tags (e.g. map(`BusinessUnit`,`XYZ`) | map(string) | `<map>` | no |
 
 ## Outputs
