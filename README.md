@@ -42,7 +42,7 @@
 
 [![Cloud Posse][logo]](https://cpco.io/homepage)
 
-# terraform-aws-lb-s3-bucket [![Codefresh Build Status](https://g.codefresh.io/api/badges/pipeline/cloudposse/terraform-modules%2Fterraform-aws-lb-s3-bucket?type=cf-1)](https://g.codefresh.io/public/accounts/cloudposse/pipelines/5d13a1a65a2937324df0008b) [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-aws-lb-s3-bucket.svg)](https://github.com/cloudposse/terraform-aws-lb-s3-bucket/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
+# terraform-aws-lb-s3-bucket [![Latest Release](https://img.shields.io/github/release/cloudposse/terraform-aws-lb-s3-bucket.svg)](https://github.com/cloudposse/terraform-aws-lb-s3-bucket/releases/latest) [![Slack Community](https://slack.cloudposse.com/badge.svg)](https://slack.cloudposse.com)
 
 
 Terraform module to provision an S3 bucket with built in IAM policy to allow [AWS Load Balancers](https://aws.amazon.com/documentation/elastic-load-balancing/) to ship [access logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html).
