@@ -49,7 +49,7 @@ module "s3_bucket" {
   policy                 = join("", data.aws_iam_policy_document.default.*.json)
   force_destroy          = var.force_destroy
   versioning_enabled     = true
-  lifecycle_rule_enabled = false
+  lifecycle_rule_enabled = var.lifecycle_rule_enabled
   delimiter              = var.delimiter
   attributes             = var.attributes
   tags                   = var.tags

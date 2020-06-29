@@ -67,3 +67,9 @@ variable "lifecycle_prefix" {
   description = "Prefix filter. Used to manage object lifecycle events"
   default     = ""
 }
+
+variable "lifecycle_rule_enabled" {
+  type        = bool
+  description = "A boolean that indicates whether the s3 log bucket lifecycle rule should be enabled."
+  default     = false
+}
