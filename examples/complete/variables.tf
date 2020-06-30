@@ -18,6 +18,11 @@ variable "name" {
   description = "Name  (e.g. `app` or `cluster`)"
 }
 
+variable "attributes" {
+  default = []
+  type    = list(string)
+}
+
 variable "acl" {
   type        = string
   description = "Canned ACL to apply to the S3 bucket"
