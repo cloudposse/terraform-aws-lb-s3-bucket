@@ -11,5 +11,6 @@ module "lb_s3_bucket" {
   stage         = var.stage
   name          = var.name
   acl           = var.acl
+  attributes    = var.attributes
   force_destroy = var.force_destroy
 }
