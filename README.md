@@ -93,12 +93,13 @@ Available targets:
 
 ```
 <!-- markdownlint-restore -->
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
 | terraform | >= 0.12.0, < 0.14.0 |
-| aws | ~> 2.0 |
+| aws | >= 2.34, < 4.0 |
 | local | ~> 1.2 |
 | null | ~> 2.0 |
 
@@ -106,7 +107,7 @@ Available targets:
 
 | Name | Version |
 |------|---------|
-| aws | ~> 2.0 |
+| aws | >= 2.34, < 4.0 |
 
 ## Inputs
 
@@ -127,7 +128,6 @@ Available targets:
 | namespace | Namespace (e.g. `cp` or `cloudposse`) | `string` | `""` | no |
 | noncurrent\_version\_expiration\_days | Specifies when noncurrent s3 log versions expire | `number` | `90` | no |
 | noncurrent\_version\_transition\_days | Specifies when noncurrent s3 log versions transition | `number` | `30` | no |
-| region | AWS Region for S3 bucket | `string` | n/a | yes |
 | stage | Stage (e.g. `prod`, `dev`, `staging`) | `string` | `""` | no |
 | standard\_transition\_days | Number of days to persist logs in standard storage tier before moving to the infrequent access tier | `number` | `30` | no |
 | tags | Additional tags (e.g. map(`BusinessUnit`,`XYZ`) | `map(string)` | `{}` | no |
@@ -141,6 +141,7 @@ Available targets:
 | bucket\_id | S3 bucket ID |
 | bucket\_prefix | S3 bucket prefix |
 
+<!-- markdownlint-restore -->
 
 
 
