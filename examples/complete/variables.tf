@@ -1,8 +1,3 @@
-variable "region" {
-  type        = string
-  description = "AWS Region for S3 bucket"
-}
-
 variable "namespace" {
   type        = string
   description = "Namespace (e.g. `eg` or `cp`)"
