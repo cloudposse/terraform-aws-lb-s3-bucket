@@ -22,7 +22,6 @@ usage: |-
     namespace = "eg"
     stage     = "test"
     name      = "cluster"
-    region    = "us-east-1"
   }
   ```
 include:
