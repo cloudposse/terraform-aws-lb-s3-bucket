@@ -51,11 +51,6 @@ variable "acl" {
   default     = "log-delivery-write"
 }
 
-variable "region" {
-  type        = string
-  description = "AWS Region for S3 bucket"
-}
-
 variable "force_destroy" {
   type        = bool
   description = "A boolean that indicates the bucket can be destroyed even if it contains objects. These objects are not recoverable"
