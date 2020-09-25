@@ -72,7 +72,6 @@ module "s3_bucket" {
   namespace = "eg"
   stage     = "test"
   name      = "cluster"
-  region    = "us-east-1"
 }
 ```
 
