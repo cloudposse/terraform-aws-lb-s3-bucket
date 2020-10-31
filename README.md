@@ -93,20 +93,21 @@ Available targets:
 
 ```
 <!-- markdownlint-restore -->
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
 |------|---------|
-| terraform | >= 0.12.0, < 0.14.0 |
-| aws | ~> 2.0 |
-| local | ~> 1.2 |
-| null | ~> 2.0 |
+| terraform | >= 0.12.0 |
+| aws | >= 2.0 |
+| local | >= 1.2 |
+| null | >= 2.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| aws | ~> 2.0 |
+| aws | >= 2.0 |
 
 ## Inputs
 
@@ -141,6 +142,7 @@ Available targets:
 | bucket\_id | S3 bucket ID |
 | bucket\_prefix | S3 bucket prefix |
 
+<!-- markdownlint-restore -->
 
 
 
