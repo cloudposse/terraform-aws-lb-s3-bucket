@@ -1,3 +1,4 @@
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -46,3 +47,4 @@
 | bucket\_id | S3 bucket ID |
 | bucket\_prefix | S3 bucket prefix |
 
+<!-- markdownlint-restore -->

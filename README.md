@@ -93,6 +93,7 @@ Available targets:
 
 ```
 <!-- markdownlint-restore -->
+<!-- markdownlint-disable -->
 ## Requirements
 
 | Name | Version |
@@ -141,6 +142,7 @@ Available targets:
 | bucket\_id | S3 bucket ID |
 | bucket\_prefix | S3 bucket prefix |
 
+<!-- markdownlint-restore -->
 
 
 
