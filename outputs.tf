@@ -17,3 +17,8 @@ output "bucket_prefix" {
   description = "S3 bucket prefix"
   value       = module.s3_bucket.prefix
 }
+
+output "enabled" {
+  value       = module.this.enabled
+  description = "Is module enabled"
+}
