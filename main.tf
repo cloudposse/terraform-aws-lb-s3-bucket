@@ -1,9 +1,9 @@
 data "aws_elb_service_account" "default" {
-  count = var.enabled ? 1 : 0
+  count = module.this.enabled ? 1 : 0
 }
 
 data "aws_iam_policy_document" "default" {
-  count = var.enabled ? 1 : 0
+  count = module.this.enabled ? 1 : 0
 
   statement {
     sid = ""
