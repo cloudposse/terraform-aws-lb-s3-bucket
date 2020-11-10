@@ -21,8 +21,7 @@ usage: |-
     source    = "git::https://github.com/cloudposse/terraform-aws-lb-s3-bucket.git?ref=master"
     namespace = "eg"
     stage     = "test"
-    name      = "cluster"
-    region    = "us-east-1"
+    name      = "bucket"
   }
   ```
 include:
@@ -37,3 +36,5 @@ contributors:
   github: aknysh
 - name: Sarkis Varozian
   github: sarkis
+- name: Joe Niland 
+  github: joe-niland
