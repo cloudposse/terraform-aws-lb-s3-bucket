@@ -18,7 +18,9 @@ description: Terraform module to provision an S3 bucket with built in IAM policy
 usage: |-
   ```hcl
   module "s3_bucket" {
-    source    = "git::https://github.com/cloudposse/terraform-aws-lb-s3-bucket.git?ref=master"
+    source = "cloudposse/lb-s3-bucket/aws"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version     = "x.x.x"
     namespace = "eg"
     stage     = "test"
     name      = "bucket"
