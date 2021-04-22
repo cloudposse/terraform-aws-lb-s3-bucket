@@ -7,20 +7,49 @@ data "aws_iam_policy_document" "default" {
 
   statement {
     sid = ""
-
     principals {
       type        = "AWS"
       identifiers = [join("", data.aws_elb_service_account.default.*.arn)]
     }
-
     effect = "Allow"
-
     actions = [
-      "s3:PutObject",
+      "s3:PutObject"
     ]
-
     resources = [
       "arn:aws:s3:::${module.this.id}/*",
+    ]
+  }
+  statement {
+    sid = ""
+    principals {
+      type        = "Service"
+      identifiers = ["delivery.logs.amazonaws.com"]
+    }
+    effect = "Allow"
+    actions = [
+      "s3:PutObject"
+    ]
+    resources = [
+      "arn:aws:s3:::${module.this.id}/*",
+    ]
+    condition {
+      test = "StringEquals"
+      variable = "s3:x-amz-acl"
+      values = ["bucket-owner-full-control"]
+    }
+  }
+  statement {
+    sid = ""
+    effect = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["delivery.logs.amazonaws.com"]
+    }
+    actions = [
+      "s3:GetBucketAcl"
+    ]
+    resources = [
+      "arn:aws:s3:::${module.this.id}",
     ]
   }
 }
