@@ -33,13 +33,13 @@ data "aws_iam_policy_document" "default" {
       "arn:aws:s3:::${module.this.id}/*",
     ]
     condition {
-      test = "StringEquals"
+      test     = "StringEquals"
       variable = "s3:x-amz-acl"
-      values = ["bucket-owner-full-control"]
+      values   = ["bucket-owner-full-control"]
     }
   }
   statement {
-    sid = ""
+    sid    = ""
     effect = "Allow"
     principals {
       type        = "Service"
