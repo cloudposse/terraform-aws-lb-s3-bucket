@@ -57,3 +57,15 @@ variable "standard_transition_days" {
   description = "Number of days to persist logs in standard storage tier before moving to the infrequent access tier"
   default     = 30
 }
+
+variable "access_log_bucket_name" {
+  type        = string
+  description = "Name of the S3 bucket where S3 access logs will be sent to"
+  default     = ""
+}
+
+variable "access_log_bucket_prefix" {
+  type        = string
+  description = "Prefix to prepend to the current S3 bucket name, where S3 access logs will be sent to"
+  default     = null
+}

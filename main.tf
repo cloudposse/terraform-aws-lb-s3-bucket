@@ -56,7 +56,7 @@ data "aws_iam_policy_document" "default" {
 
 module "s3_bucket" {
   source                             = "cloudposse/s3-log-storage/aws"
-  version                            = "0.20.0"
+  version                            = "0.24.0"
   context                            = module.this.context
   acl                                = var.acl
   policy                             = join("", data.aws_iam_policy_document.default.*.json)
@@ -70,4 +70,6 @@ module "s3_bucket" {
   noncurrent_version_transition_days = var.noncurrent_version_transition_days
   standard_transition_days           = var.standard_transition_days
   lifecycle_prefix                   = var.lifecycle_prefix
+  access_log_bucket_name             = var.access_log_bucket_name
+  access_log_bucket_prefix           = var.access_log_bucket_prefix
 }
