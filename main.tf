@@ -1,3 +1,7 @@
+locals {
+  bucket_name = var.bucket_name != null && var.bucket_name != "" ? var.bucket_name : module.this.id
+}
+
 data "aws_elb_service_account" "default" {
   count = module.this.enabled ? 1 : 0
 }
@@ -58,6 +62,7 @@ module "s3_bucket" {
   source                             = "cloudposse/s3-log-storage/aws"
   version                            = "0.24.0"
   context                            = module.this.context
+  bucket                             = local.bucket_name
   acl                                = var.acl
   policy                             = join("", data.aws_iam_policy_document.default.*.json)
   force_destroy                      = var.force_destroy
