@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "default" {
       "s3:PutObject"
     ]
     resources = [
-      "arn:aws:s3:::${module.this.id}/*",
+      "arn:${data.aws_partition.current.partition}:s3:::${module.this.id}/*",
     ]
   }
   statement {
@@ -30,7 +30,7 @@ data "aws_iam_policy_document" "default" {
       "s3:PutObject"
     ]
     resources = [
-      "arn:aws:s3:::${module.this.id}/*",
+      "arn:${data.aws_partition.current.partition}:s3:::${module.this.id}/*",
     ]
     condition {
       test     = "StringEquals"
@@ -49,10 +49,12 @@ data "aws_iam_policy_document" "default" {
       "s3:GetBucketAcl"
     ]
     resources = [
-      "arn:aws:s3:::${module.this.id}",
+      "arn:${data.aws_partition.current.partition}:s3:::${module.this.id}",
     ]
   }
 }
+
+data "aws_partition" "current" {}
 
 module "s3_bucket" {
   source                             = "cloudposse/s3-log-storage/aws"
