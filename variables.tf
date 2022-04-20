@@ -69,3 +69,9 @@ variable "access_log_bucket_prefix" {
   description = "Prefix to prepend to the current S3 bucket name, where S3 access logs will be sent to"
   default     = null
 }
+
+variable "allow_ssl_requests_only" {
+  type        = bool
+  description = "Require requests to use Secure Socket Layer (HTTPS/SSL)."
+  default     = false
+}

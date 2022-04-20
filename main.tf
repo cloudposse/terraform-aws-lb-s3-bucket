@@ -74,4 +74,5 @@ module "s3_bucket" {
   lifecycle_prefix                   = var.lifecycle_prefix
   access_log_bucket_name             = var.access_log_bucket_name
   access_log_bucket_prefix           = var.access_log_bucket_prefix
+  allow_ssl_requests_only            = var.allow_ssl_requests_only
 }
