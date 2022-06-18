@@ -58,7 +58,7 @@ data "aws_partition" "current" {}
 
 module "s3_bucket" {
   source                             = "cloudposse/s3-log-storage/aws"
-  version                            = "0.26.0"
+  version                            = "0.28.0"
   context                            = module.this.context
   acl                                = var.acl
   policy                             = join("", data.aws_iam_policy_document.default.*.json)
