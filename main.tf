@@ -62,12 +62,12 @@ module "s3_bucket" {
   source  = "cloudposse/s3-log-storage/aws"
   version = "0.28.0"
 
-  acl                                = var.acl
-  source_policy_documents            = [join("", data.aws_iam_policy_document.default.*.json)]
-  force_destroy                      = var.force_destroy
-  force_destroy_enabled              = var.force_destroy_enabled
-  versioning_enabled                 = var.versioning_enabled
-  lifecycle_configuration_rules      = var.lifecycle_configuration_rules
+  acl                           = var.acl
+  source_policy_documents       = [join("", data.aws_iam_policy_document.default.*.json)]
+  force_destroy                 = var.force_destroy
+  force_destroy_enabled         = var.force_destroy_enabled
+  versioning_enabled            = var.versioning_enabled
+  lifecycle_configuration_rules = var.lifecycle_configuration_rules
 
   # TODO: deprecate these inputs in favor of `lifecycle_configuration_rules`
   lifecycle_rule_enabled             = var.lifecycle_rule_enabled
