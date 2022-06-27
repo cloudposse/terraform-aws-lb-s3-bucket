@@ -59,8 +59,8 @@ data "aws_iam_policy_document" "default" {
 data "aws_partition" "current" {}
 
 module "s3_bucket" {
-  source                             = "cloudposse/s3-log-storage/aws"
-  version                            = "0.28.0"
+  source  = "cloudposse/s3-log-storage/aws"
+  version = "0.28.0"
 
   acl                                = var.acl
   policy                             = join("", data.aws_iam_policy_document.default.*.json)
