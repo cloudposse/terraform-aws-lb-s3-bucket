@@ -69,3 +69,9 @@ variable "access_log_bucket_prefix" {
   description = "Prefix to prepend to the current S3 bucket name, where S3 access logs will be sent to"
   default     = null
 }
+
+variable "versioning_enabled" {
+  type        = bool
+  description = "Enable object versioning, keeping multiple variants of an object in the same bucket"
+  default     = true
+}

@@ -19,6 +19,7 @@ data "aws_iam_policy_document" "default" {
       "arn:${data.aws_partition.current.partition}:s3:::${module.this.id}/*",
     ]
   }
+
   statement {
     sid = ""
     principals {
@@ -38,6 +39,7 @@ data "aws_iam_policy_document" "default" {
       values   = ["bucket-owner-full-control"]
     }
   }
+
   statement {
     sid    = ""
     effect = "Allow"
@@ -57,13 +59,13 @@ data "aws_iam_policy_document" "default" {
 data "aws_partition" "current" {}
 
 module "s3_bucket" {
-  source                             = "cloudposse/s3-log-storage/aws"
-  version                            = "0.26.0"
-  context                            = module.this.context
+  source  = "cloudposse/s3-log-storage/aws"
+  version = "0.28.0"
+
   acl                                = var.acl
   policy                             = join("", data.aws_iam_policy_document.default.*.json)
   force_destroy                      = var.force_destroy
-  versioning_enabled                 = true
+  versioning_enabled                 = var.versioning_enabled
   lifecycle_rule_enabled             = var.lifecycle_rule_enabled
   enable_glacier_transition          = var.enable_glacier_transition
   expiration_days                    = var.expiration_days
@@ -74,4 +76,6 @@ module "s3_bucket" {
   lifecycle_prefix                   = var.lifecycle_prefix
   access_log_bucket_name             = var.access_log_bucket_name
   access_log_bucket_prefix           = var.access_log_bucket_prefix
+
+  context = module.this.context
 }
