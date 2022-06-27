@@ -62,10 +62,17 @@ module "s3_bucket" {
   source  = "cloudposse/s3-log-storage/aws"
   version = "0.28.0"
 
-  acl                                = var.acl
-  policy                             = join("", data.aws_iam_policy_document.default.*.json)
-  force_destroy                      = var.force_destroy
-  versioning_enabled                 = var.versioning_enabled
+  acl                           = var.acl
+  source_policy_documents       = [join("", data.aws_iam_policy_document.default.*.json)]
+  force_destroy                 = var.force_destroy
+  force_destroy_enabled         = var.force_destroy_enabled
+  versioning_enabled            = var.versioning_enabled
+  allow_ssl_requests_only       = var.allow_ssl_requests_only
+  access_log_bucket_name        = var.access_log_bucket_name
+  access_log_bucket_prefix      = var.access_log_bucket_prefix
+  lifecycle_configuration_rules = var.lifecycle_configuration_rules
+
+  # TODO: deprecate these inputs in favor of `lifecycle_configuration_rules`
   lifecycle_rule_enabled             = var.lifecycle_rule_enabled
   enable_glacier_transition          = var.enable_glacier_transition
   expiration_days                    = var.expiration_days
@@ -74,8 +81,6 @@ module "s3_bucket" {
   noncurrent_version_transition_days = var.noncurrent_version_transition_days
   standard_transition_days           = var.standard_transition_days
   lifecycle_prefix                   = var.lifecycle_prefix
-  access_log_bucket_name             = var.access_log_bucket_name
-  access_log_bucket_prefix           = var.access_log_bucket_prefix
 
   context = module.this.context
 }
