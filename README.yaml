@@ -1,6 +1,7 @@
 name: terraform-aws-lb-s3-bucket
 license: APACHE2
 github_repo: cloudposse/terraform-aws-lb-s3-bucket
+
 badges:
 - name: Latest Release
   image: https://img.shields.io/github/release/cloudposse/terraform-aws-lb-s3-bucket.svg
@@ -8,27 +9,37 @@ badges:
 - name: Slack Community
   image: https://slack.cloudposse.com/badge.svg
   url: https://slack.cloudposse.com
+
 related:
 - name: terraform-aws-alb
   description: Terraform module to provision a standard ALB for HTTP/HTTP traffic
   url: https://github.com/cloudposse/terraform-aws-alb
+
 description: Terraform module to provision an S3 bucket with built in IAM policy to
   allow [AWS Load Balancers](https://aws.amazon.com/documentation/elastic-load-balancing/)
   to ship [access logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html).
+
 usage: |-
+  For a complete example, see [examples/complete](examples/complete).
+  For automated tests of the complete example using [bats](https://github.com/bats-core/bats-core) and [Terratest](https://github.com/gruntwork-io/terratest)
+  (which tests and deploys the example on AWS), see [test](test).
+
   ```hcl
   module "s3_bucket" {
     source = "cloudposse/lb-s3-bucket/aws"
     # Cloud Posse recommends pinning every module to a specific version
     # version     = "x.x.x"
+
     namespace = "eg"
     stage     = "test"
     name      = "bucket"
   }
   ```
+
 include:
 - docs/targets.md
 - docs/terraform.md
+
 contributors:
 - name: Erik Osterman
   github: osterman
@@ -40,3 +51,5 @@ contributors:
   github: sarkis
 - name: Joe Niland 
   github: joe-niland
+- name: RB
+  github: nitrocode
