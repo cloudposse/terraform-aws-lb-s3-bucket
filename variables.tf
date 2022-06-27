@@ -75,3 +75,9 @@ variable "allow_ssl_requests_only" {
   description = "Require requests to use Secure Socket Layer (HTTPS/SSL)."
   default     = false
 }
+
+variable "versioning_enabled" {
+  type        = bool
+  description = "Enable object versioning, keeping multiple variants of an object in the same bucket"
+  default     = true
+}
