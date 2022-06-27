@@ -8,4 +8,4 @@ name = "lb-s3-test"
 
 acl = "log-delivery-write"
 
-force_destroy = true
+force_destroy = false

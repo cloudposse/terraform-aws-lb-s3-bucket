@@ -67,6 +67,9 @@ module "s3_bucket" {
   force_destroy                 = var.force_destroy
   force_destroy_enabled         = var.force_destroy_enabled
   versioning_enabled            = var.versioning_enabled
+  allow_ssl_requests_only       = var.allow_ssl_requests_only
+  access_log_bucket_name        = var.access_log_bucket_name
+  access_log_bucket_prefix      = var.access_log_bucket_prefix
   lifecycle_configuration_rules = var.lifecycle_configuration_rules
 
   # TODO: deprecate these inputs in favor of `lifecycle_configuration_rules`
@@ -78,9 +81,6 @@ module "s3_bucket" {
   noncurrent_version_transition_days = var.noncurrent_version_transition_days
   standard_transition_days           = var.standard_transition_days
   lifecycle_prefix                   = var.lifecycle_prefix
-  access_log_bucket_name             = var.access_log_bucket_name
-  access_log_bucket_prefix           = var.access_log_bucket_prefix
-  allow_ssl_requests_only            = var.allow_ssl_requests_only
 
   context = module.this.context
 }
