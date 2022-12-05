@@ -65,7 +65,6 @@ module "s3_bucket" {
   acl                           = var.acl
   source_policy_documents       = [join("", data.aws_iam_policy_document.default.*.json)]
   force_destroy                 = var.force_destroy
-  force_destroy_enabled         = var.force_destroy_enabled
   versioning_enabled            = var.versioning_enabled
   allow_ssl_requests_only       = var.allow_ssl_requests_only
   access_log_bucket_name        = var.access_log_bucket_name
