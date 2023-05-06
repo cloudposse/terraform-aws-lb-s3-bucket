@@ -4,6 +4,12 @@ variable "acl" {
   default     = "log-delivery-write"
 }
 
+variable "bucket_name" {
+  type        = string
+  default     = null
+  description = "Bucket name. If provided, the bucket will be created with this name instead of generating the name from the context"
+}
+
 variable "force_destroy" {
   type        = bool
   default     = false
