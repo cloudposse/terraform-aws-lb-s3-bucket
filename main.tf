@@ -60,9 +60,10 @@ data "aws_partition" "current" {}
 
 module "s3_bucket" {
   source  = "cloudposse/s3-log-storage/aws"
-  version = "1.0.0"
+  version = "1.2.0"
 
   acl                           = var.acl
+  bucket_name                   = var.bucket_name
   source_policy_documents       = [join("", data.aws_iam_policy_document.default.*.json)]
   force_destroy                 = var.force_destroy
   versioning_enabled            = var.versioning_enabled
