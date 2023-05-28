@@ -1,4 +1,5 @@
 SHELL := /bin/bash
+export TERRAFORM_VERSION = 1.3.9
 
 # List of targets the `readme` target should call before generating the readme
 export README_DEPS ?= docs/targets.md docs/terraform.md
