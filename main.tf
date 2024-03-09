@@ -71,6 +71,7 @@ module "s3_bucket" {
   access_log_bucket_name        = var.access_log_bucket_name
   access_log_bucket_prefix      = var.access_log_bucket_prefix
   lifecycle_configuration_rules = var.lifecycle_configuration_rules
+  s3_object_ownership           = var.s3_object_ownership
 
   # TODO: deprecate these inputs in favor of `lifecycle_configuration_rules`
   lifecycle_rule_enabled             = var.lifecycle_rule_enabled

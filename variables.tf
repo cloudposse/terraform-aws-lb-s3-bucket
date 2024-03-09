@@ -32,6 +32,12 @@ variable "access_log_bucket_prefix" {
   default     = null
 }
 
+variable "s3_object_ownership" {
+  type        = string
+  description = "Specifies the S3 object ownership control. Valid values are `ObjectWriter`, `BucketOwnerPreferred`, and 'BucketOwnerEnforced'."
+  default     = "BucketOwnerPreferred"
+}
+
 variable "allow_ssl_requests_only" {
   type        = bool
   description = "Require requests to use Secure Socket Layer (HTTPS/SSL)."
