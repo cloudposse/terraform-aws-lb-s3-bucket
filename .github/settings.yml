@@ -1,0 +1,7 @@
+# Upstream changes from _extends are only recognized when modifications are made to this file in the default branch.
+_extends: .github
+repository:
+  name: terraform-aws-lb-s3-bucket
+  description: Terraform module to provision an S3 bucket with built in IAM policy to allow AWS Load Balancers to ship access logs
+  homepage: https://cloudposse.com/accelerate
+  topics: terraform, terraform-module, aws, lb, elb, alb, nlb, s3, logs, bucket, iam-policy, hcl2, terratest
