@@ -16,7 +16,7 @@ data "aws_iam_policy_document" "default" {
       "s3:PutObject"
     ]
     resources = [
-      "arn:${data.aws_partition.current.partition}:s3:::${module.this.id}/*",
+      "arn:${data.aws_partition.current.partition}:s3:::${var.bucket_name}/*",
     ]
   }
 
@@ -31,7 +31,7 @@ data "aws_iam_policy_document" "default" {
       "s3:PutObject"
     ]
     resources = [
-      "arn:${data.aws_partition.current.partition}:s3:::${module.this.id}/*",
+      "arn:${data.aws_partition.current.partition}:s3:::${var.bucket_name}/*",
     ]
     condition {
       test     = "StringEquals"
@@ -51,7 +51,7 @@ data "aws_iam_policy_document" "default" {
       "s3:GetBucketAcl"
     ]
     resources = [
-      "arn:${data.aws_partition.current.partition}:s3:::${module.this.id}",
+      "arn:${data.aws_partition.current.partition}:s3:::${var.bucket_name}",
     ]
   }
 }
