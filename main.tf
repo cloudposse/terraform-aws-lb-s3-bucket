@@ -68,7 +68,7 @@ data "aws_iam_policy_document" "default" {
       "s3:GetBucketAcl"
     ]
     resources = [
-      "arn:${data.aws_partition.current.partition}:s3:::${var.bucket_name}",
+      "arn:${data.aws_partition.current.partition}:s3:::${local.bucket_name}",
     ]
   }
 }
