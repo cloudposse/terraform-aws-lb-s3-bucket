@@ -8,7 +8,7 @@ module "bucket_name" {
   source  = "cloudposse/label/null"
   version = "0.25.0"
 
-  enabled = local.enabled && try(length(var.bucket_name) == 0, false)
+  enabled = local.enabled && try(length(var.bucket_name) == 0, true)
 
   id_length_limit = 63 # https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
 
