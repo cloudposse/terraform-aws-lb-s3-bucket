@@ -1,3 +1,20 @@
+locals {
+  enabled              = module.this.enabled
+  generate_bucket_name = local.enabled && try(length(var.bucket_name) == 0, true) # Use `try` to handle `null` value
+  bucket_name          = local.generate_bucket_name ? module.bucket_name.id : var.bucket_name
+}
+
+module "bucket_name" {
+  source  = "cloudposse/label/null"
+  version = "0.25.0"
+
+  enabled = local.generate_bucket_name
+
+  id_length_limit = 63 # https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
+
+  context = module.this.context
+}
+
 data "aws_elb_service_account" "default" {
   count = module.this.enabled ? 1 : 0
 }
@@ -16,7 +33,7 @@ data "aws_iam_policy_document" "default" {
       "s3:PutObject"
     ]
     resources = [
-      "arn:${data.aws_partition.current.partition}:s3:::${module.this.id}/*",
+      "arn:${data.aws_partition.current.partition}:s3:::${local.bucket_name}/*",
     ]
   }
 
@@ -31,7 +48,7 @@ data "aws_iam_policy_document" "default" {
       "s3:PutObject"
     ]
     resources = [
-      "arn:${data.aws_partition.current.partition}:s3:::${module.this.id}/*",
+      "arn:${data.aws_partition.current.partition}:s3:::${local.bucket_name}/*",
     ]
     condition {
       test     = "StringEquals"
@@ -51,7 +68,7 @@ data "aws_iam_policy_document" "default" {
       "s3:GetBucketAcl"
     ]
     resources = [
-      "arn:${data.aws_partition.current.partition}:s3:::${module.this.id}",
+      "arn:${data.aws_partition.current.partition}:s3:::${local.bucket_name}",
     ]
   }
 }
@@ -60,7 +77,7 @@ data "aws_partition" "current" {}
 
 module "s3_bucket" {
   source  = "cloudposse/s3-log-storage/aws"
-  version = "1.3.1"
+  version = "1.4.2"
 
   acl                           = var.acl
   bucket_name                   = var.bucket_name

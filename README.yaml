@@ -3,21 +3,23 @@ license: APACHE2
 github_repo: cloudposse/terraform-aws-lb-s3-bucket
 
 badges:
-- name: Latest Release
-  image: https://img.shields.io/github/release/cloudposse/terraform-aws-lb-s3-bucket.svg
-  url: https://github.com/cloudposse/terraform-aws-lb-s3-bucket/releases/latest
-- name: Slack Community
-  image: https://slack.cloudposse.com/badge.svg
-  url: https://slack.cloudposse.com
+  - name: Latest Release
+    image: https://img.shields.io/github/release/cloudposse/terraform-aws-lb-s3-bucket.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-lb-s3-bucket/releases/latest
+  - name: Last Updated
+    image: https://img.shields.io/github/last-commit/cloudposse/terraform-aws-lb-s3-bucket.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-lb-s3-bucket/commits
+  - name: Slack Community
+    image: https://slack.cloudposse.com/for-the-badge.svg
+    url: https://slack.cloudposse.com
 
+# List any related terraform modules that this module may be used with or that this module depends on.
 related:
-- name: terraform-aws-alb
-  description: Terraform module to provision a standard ALB for HTTP/HTTP traffic
-  url: https://github.com/cloudposse/terraform-aws-alb
+  - name: terraform-aws-alb
+    description: Terraform module to provision a standard ALB for HTTP/HTTP traffic
+    url: https://github.com/cloudposse/terraform-aws-alb
 
-description: Terraform module to provision an S3 bucket with built in IAM policy to
-  allow [AWS Load Balancers](https://aws.amazon.com/documentation/elastic-load-balancing/)
-  to ship [access logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html).
+description: Terraform module to provision an S3 bucket with built in IAM policy to allow [AWS Load Balancers](https://aws.amazon.com/documentation/elastic-load-balancing/) to ship [access logs](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html).
 
 usage: |-
   For a complete example, see [examples/complete](examples/complete).
@@ -37,19 +39,7 @@ usage: |-
   ```
 
 include:
-- docs/targets.md
-- docs/terraform.md
+  - docs/targets.md
+  - docs/terraform.md
 
-contributors:
-- name: Erik Osterman
-  github: osterman
-- name: Igor Rodionov
-  github: goruha
-- name: Andriy Knysh
-  github: aknysh
-- name: Sarkis Varozian
-  github: sarkis
-- name: Joe Niland 
-  github: joe-niland
-- name: RB
-  github: nitrocode
+contributors: []
