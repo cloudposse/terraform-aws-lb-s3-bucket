@@ -5,12 +5,12 @@ locals {
 }
 
 module "bucket_name" {
-  source  = "cloudposse/label/null"
+  source     = "cloudposse/label/null"
   version = "0.25.0"
 
   enabled = local.generate_bucket_name
 
-  id_length_limit = 63 # https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
+  id_length_limit    = 63 # https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html
 
   context = module.this.context
 }
