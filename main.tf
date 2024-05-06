@@ -1,7 +1,7 @@
 locals {
   enabled              = module.this.enabled
   generate_bucket_name = local.enabled && try(length(var.bucket_name) == 0, true) # Use `try` to handle `null` value
-  bucket_name        = local.generate_bucket_name ? module.bucket_name.id : var.bucket_name
+  bucket_name          = local.generate_bucket_name ? module.bucket_name.id : var.bucket_name
 }
 
 module "bucket_name" {
