@@ -1,8 +1,9 @@
 
 
 <!-- markdownlint-disable -->
-# terraform-aws-lb-s3-bucket <a href="https://cpco.io/homepage?utm_source=github&utm_medium=readme&utm_campaign=cloudposse/terraform-aws-lb-s3-bucket&utm_content="><img align="right" src="https://cloudposse.com/logo-300x69.svg" width="150" /></a>
-<a href="https://github.com/cloudposse/terraform-aws-lb-s3-bucket/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-aws-lb-s3-bucket.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-aws-lb-s3-bucket/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-aws-lb-s3-bucket.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://slack.cloudposse.com"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a>
+<a href="https://cpco.io/homepage"><img src=".github/banner.png?raw=true" alt="Project Banner"/></a><br/>
+    <p align="right">
+<a href="https://github.com/cloudposse/terraform-aws-lb-s3-bucket/releases/latest"><img src="https://img.shields.io/github/release/cloudposse/terraform-aws-lb-s3-bucket.svg?style=for-the-badge" alt="Latest Release"/></a><a href="https://github.com/cloudposse/terraform-aws-lb-s3-bucket/commits"><img src="https://img.shields.io/github/last-commit/cloudposse/terraform-aws-lb-s3-bucket.svg?style=for-the-badge" alt="Last Updated"/></a><a href="https://slack.cloudposse.com"><img src="https://slack.cloudposse.com/for-the-badge.svg" alt="Slack Community"/></a></p>
 <!-- markdownlint-restore -->
 
 <!--
@@ -105,6 +106,7 @@ Available targets:
 
 | Name | Source | Version |
 |------|--------|---------|
+| <a name="module_bucket_name"></a> [bucket\_name](#module\_bucket\_name) | cloudposse/label/null | 0.25.0 |
 | <a name="module_s3_bucket"></a> [s3\_bucket](#module\_s3\_bucket) | cloudposse/s3-log-storage/aws | 1.4.2 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
 
