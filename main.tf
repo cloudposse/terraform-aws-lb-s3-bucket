@@ -26,7 +26,7 @@ data "aws_iam_policy_document" "default" {
     sid = ""
     principals {
       type        = "AWS"
-      identifiers = [join("", data.aws_elb_service_account.default.*.arn)]
+      identifiers = [join("", data.aws_elb_service_account.default[*].arn)]
     }
     effect = "Allow"
     actions = [
@@ -77,17 +77,18 @@ data "aws_partition" "current" {}
 
 module "s3_bucket" {
   source  = "cloudposse/s3-log-storage/aws"
-  version = "1.4.2"
+  version = "1.4.3"
 
   acl                           = var.acl
   bucket_name                   = var.bucket_name
-  source_policy_documents       = [join("", data.aws_iam_policy_document.default.*.json)]
+  source_policy_documents       = [join("", data.aws_iam_policy_document.default[*].json)]
   force_destroy                 = var.force_destroy
   versioning_enabled            = var.versioning_enabled
   allow_ssl_requests_only       = var.allow_ssl_requests_only
   access_log_bucket_name        = var.access_log_bucket_name
   access_log_bucket_prefix      = var.access_log_bucket_prefix
   lifecycle_configuration_rules = var.lifecycle_configuration_rules
+  s3_object_ownership           = var.s3_object_ownership
 
   # TODO: deprecate these inputs in favor of `lifecycle_configuration_rules`
   lifecycle_rule_enabled             = var.lifecycle_rule_enabled
