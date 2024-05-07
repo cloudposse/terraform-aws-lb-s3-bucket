@@ -12,7 +12,7 @@ permissions:
   id-token: write
   contents: write
   issues: write
-  
+
 jobs:
   terraform-module:
     uses: cloudposse/github-actions-workflows-terraform-module/.github/workflows/feature-branch.yml@main
