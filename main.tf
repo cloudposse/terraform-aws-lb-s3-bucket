@@ -77,7 +77,7 @@ data "aws_partition" "current" {}
 
 module "s3_bucket" {
   source  = "cloudposse/s3-log-storage/aws"
-  version = "1.4.3"
+  version = "1.4.5"
 
   acl                           = var.acl
   bucket_name                   = var.bucket_name
