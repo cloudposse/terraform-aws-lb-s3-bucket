@@ -2,6 +2,29 @@ locals {
   enabled              = module.this.enabled
   generate_bucket_name = local.enabled && try(length(var.bucket_name) == 0, true) # Use `try` to handle `null` value
   bucket_name          = local.generate_bucket_name ? module.bucket_name.id : var.bucket_name
+
+  # The `aws_elb_service_account` data source only knows the Regions that have a legacy
+  # Elastic Load Balancing account, and fails with "unsupported ELB Service Account Region"
+  # everywhere else. Regions opened since August 2022 (e.g. il-central-1, me-central-1,
+  # ap-southeast-4) only support the `logdelivery.elasticloadbalancing.amazonaws.com`
+  # service principal.
+  # https://docs.aws.amazon.com/elasticloadbalancing/latest/application/enable-access-logging.html#attach-bucket-policy
+  elb_legacy_account_regions = [
+    "af-south-1", "ap-east-1", "ap-northeast-1", "ap-northeast-2", "ap-northeast-3",
+    "ap-south-1", "ap-southeast-1", "ap-southeast-2", "ap-southeast-3", "ca-central-1",
+    "cn-north-1", "cn-northwest-1", "eu-central-1", "eu-north-1", "eu-south-1",
+    "eu-west-1", "eu-west-2", "eu-west-3", "me-south-1", "sa-east-1",
+    "us-east-1", "us-east-2", "us-gov-east-1", "us-gov-west-1", "us-west-1", "us-west-2",
+  ]
+  # Read the Region from the EC2 endpoint (`ec2.<region>.amazonaws.com[.cn]`), which is not
+  # deprecated in any supported AWS provider version (`name` and `id` are deprecated in v6).
+  region                      = local.enabled ? split(".", one(data.aws_region.current[*].endpoint))[1] : null
+  elb_legacy_account_enabled  = local.enabled && contains(local.elb_legacy_account_regions, coalesce(local.region, "none"))
+  elb_service_principal_names = local.elb_legacy_account_enabled ? [] : ["logdelivery.elasticloadbalancing.amazonaws.com"]
+}
+
+data "aws_region" "current" {
+  count = local.enabled ? 1 : 0
 }
 
 module "bucket_name" {
@@ -16,25 +39,48 @@ module "bucket_name" {
 }
 
 data "aws_elb_service_account" "default" {
-  count = module.this.enabled ? 1 : 0
+  count = local.elb_legacy_account_enabled ? 1 : 0
 }
 
 data "aws_iam_policy_document" "default" {
   count = module.this.enabled ? 1 : 0
 
-  statement {
-    sid = ""
-    principals {
-      type        = "AWS"
-      identifiers = [join("", data.aws_elb_service_account.default[*].arn)]
+  dynamic "statement" {
+    for_each = local.elb_legacy_account_enabled ? [1] : []
+
+    content {
+      sid = ""
+      principals {
+        type        = "AWS"
+        identifiers = [join("", data.aws_elb_service_account.default[*].arn)]
+      }
+      effect = "Allow"
+      actions = [
+        "s3:PutObject"
+      ]
+      resources = [
+        "arn:${data.aws_partition.current.partition}:s3:::${local.bucket_name}/*",
+      ]
     }
-    effect = "Allow"
-    actions = [
-      "s3:PutObject"
-    ]
-    resources = [
-      "arn:${data.aws_partition.current.partition}:s3:::${local.bucket_name}/*",
-    ]
+  }
+
+  dynamic "statement" {
+    for_each = local.elb_service_principal_names
+
+    content {
+      sid = ""
+      principals {
+        type        = "Service"
+        identifiers = [statement.value]
+      }
+      effect = "Allow"
+      actions = [
+        "s3:PutObject"
+      ]
+      resources = [
+        "arn:${data.aws_partition.current.partition}:s3:::${local.bucket_name}/*",
+      ]
+    }
   }
 
   statement {
